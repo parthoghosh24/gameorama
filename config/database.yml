@@ -8,8 +8,8 @@ development:
   database: gameorama_dev
   reconnect: false
   pool: 5
-  username:root
-  password:root
+  username: root
+  password: root
   socket: /var/run/mysqld/mysqld.sock
   timeout: 5000
 
@@ -21,8 +21,8 @@ test:
   database: gameorama_test
   reconnect: false
   pool: 5
-  username:root
-  password:root
+  username: root
+  password: root
   socket: /var/run/mysqld/mysqld.sock
   timeout: 5000
 
@@ -32,7 +32,7 @@ production:
   database: gameorama_prod
   reconnect: false
   pool: 5
-  username:root
-  password:root
+  username: root
+  password: root
   socket: /var/run/mysqld/mysqld.sock
   timeout: 5000
