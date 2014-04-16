@@ -1,0 +1,90 @@
+@import "bootstrap";
+@import "font-awesome";
+ $grayMediumLight: #eaeaea; 
+  section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  padding-bottom:20px;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+ #bgVideo
+  {
+    position: absolute; 
+    bottom: 0px; right: 0px; 
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto; height: auto; 
+    z-index: -1000; 
+    overflow: hidden;
+  }
+  
+ .panel 
+  {
+     background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  body{   
+    margin:0; 
+    padding-top: 200px;
+
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+  }
+
+  h1 {
+   font-size: 3em;
+   letter-spacing: -2px;
+   margin-bottom: 30px;
+   text-align: center;
+  }
+
+  h2 {
+   font-size: 1.2em;
+   letter-spacing: -1px;
+   margin-bottom: 30px;
+   text-align: center;
+   font-weight: normal;
+   color: #999;
+  }
+
+ p {
+   font-size: 1.1em;
+   line-height: 1.7em;
+  }
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  color: #ccc;
+  a {
+    color: #999;
+    &:hover {
+      color: #555;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
