@@ -1,4 +1,4 @@
-<% provide(:title, 'Help')%>
+<% provide(:title, 'About Us')%>
 <%= render 'layouts/header' %>
 
 <div class="container">

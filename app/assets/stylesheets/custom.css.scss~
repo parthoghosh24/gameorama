@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "font-awesome";
  $grayMediumLight: #eaeaea; 
   section {
   overflow: auto;
@@ -64,27 +64,9 @@ textarea {
    line-height: 1.7em;
   }
 
-/* footer */
+ .footerContainer
+  {
+     width:400px;
+  }
 
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  color: #ccc;
-  a {
-    color: #999;
-    &:hover {
-      color: #555;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
-}
+

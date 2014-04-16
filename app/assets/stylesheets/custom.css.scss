@@ -64,27 +64,14 @@ textarea {
    line-height: 1.7em;
   }
 
-/* footer */
+ .footerContainer
+  {
+     width:400px;
+     clear: both;
+     margin-right: auto;
+     margin-left: auto;
+     padding-left: 15px;
+     padding-right: 15px;  
+  }
 
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  color: #ccc;
-  a {
-    color: #999;
-    &:hover {
-      color: #555;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
-}
+
