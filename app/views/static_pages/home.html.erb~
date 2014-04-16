@@ -42,13 +42,4 @@
   </div>
   
 </div>
-<script>
-$(document).ready(function(){
-  $.fn.bootstrapSwitch.defaults.onText = 'Gamer';
-  $.fn.bootstrapSwitch.defaults.offText = 'Admin';
-  $.fn.bootstrapSwitch.defaults.onColor = 'success';
-  $("[name='myCheckbox']").bootstrapSwitch(); 
-});
-
-</script>
-
+ <%= render 'layouts/footer' %>

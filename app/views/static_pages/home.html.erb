@@ -26,7 +26,7 @@
 				  </div>
 				  <input class="btn btn-large btn-primary" name="commit" type="submit"
 				       value="Sign in" />
-                                  <input type="checkbox" name="myCheckbox" checked>
+                                  <input type="checkbox" name="myCheckbox" checked value="On">
                   	</form>
 		</div>
                  
@@ -42,13 +42,4 @@
   </div>
   
 </div>
-<script>
-$(document).ready(function(){
-  $.fn.bootstrapSwitch.defaults.onText = 'Gamer';
-  $.fn.bootstrapSwitch.defaults.offText = 'Admin';
-  $.fn.bootstrapSwitch.defaults.onColor = 'success';
-  $("[name='myCheckbox']").bootstrapSwitch(); 
-});
-
-</script>
  <%= render 'layouts/footer' %>
