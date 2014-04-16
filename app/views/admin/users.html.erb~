@@ -1,4 +1,4 @@
 <% provide(:title, 'Admin Dashboard')%>
 <%= render 'layouts/header' %>
-<h1>All Games</h1>
-<p>List All Games</p>
+<h1>All Users</h1>
+<p>Find me in app/views/admin/users.html.erb</p>

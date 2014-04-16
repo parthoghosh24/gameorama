@@ -1,0 +1,8 @@
+<% provide(:title, 'Admin Dashboard')%>
+<%= render 'layouts/header' %>
+
+<div class="container">
+ <h1>Admin Dashboard</h1>
+ <p>Users and Games can be created from here</p>
+</div>
+
