@@ -1,9 +1,11 @@
 Gameorama::Application.routes.draw do
-  get "admin/createUser"
-  get "admin/createGame"
-  get "admin/games"
 
 
+
+  match'/admin/dashboard', to: 'admin#index', via: 'get'
+  match'/admin/users', to: 'admin#users', via: 'get'
+  match'/admin/games', to: 'admin#games', via: 'get'
+ 
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -11,10 +13,10 @@ Gameorama::Application.routes.draw do
   match '/news', to: 'static_pages#news', via: 'get'
 
   resources :sessions, only: [:new, :create, :destroy]  
-  match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
-  match '/user/index/:id', to: 'user#index', via: 'get'
+  resources:users
+ #  match '/user/index/:id', to: 'user#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

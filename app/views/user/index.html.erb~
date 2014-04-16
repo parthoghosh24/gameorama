@@ -1,8 +1,0 @@
-<% provide(:title, 'About Us')%>
-<%= render 'layouts/header' %>
-
-<div class="container">
-  <h1><%=@user.name%></h1>
-<p><%=@user.email%></p>
-</div>
-

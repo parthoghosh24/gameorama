@@ -16,18 +16,21 @@
                        <button class="btn btn-facebook"><i class="fa fa-facebook"></i> | Login with Facebook</button>
 		</div>
   		<div class="span6 offset3" style="margin-top:50px;">
- 			<form accept-charset="UTF-8" action="/sessions" method="post" role="form">
-                                  
-				  <div class="form-group">
-				    <input id="session_email" name="session[email]" type="text" placeholder="Enter Email" />
-				  </div>
-				  <div class="form-group">
-				    <input id="session_password" name="session[password]" type="password" placeholder="Enter Password"/>
-				  </div>
-				  <input class="btn btn-large btn-primary" name="commit" type="submit"
-				       value="Sign in" />
-                                  <input type="checkbox" name="myCheckbox" checked>
-                  	</form>
+                           <% flash.each do |key, value| %>
+        			<div class="alert alert-<%= key %>"><%= value %></div>
+			   <% end %>
+                         <%= form_for(:session, url: sessions_path) do |f| %>
+
+
+                            <%= f.text_field :email, :placeholder => "Enter Email"%>
+                            <br><br>
+                            <%= f.password_field :password, :placeholder => "Enter Password" %>
+                            <br>
+                            <br>
+                           <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+                           <input type="checkbox" name="session[myCheckbox]" checked value="1">
+                         <% end %>
+
 		</div>
                  
                 <div class="span6 offset3" style="margin-top:50px;">
@@ -43,3 +46,9 @@
   
 </div>
  <%= render 'layouts/footer' %>
+<script>
+ $.fn.bootstrapSwitch.defaults.onText = 'Gamer';
+  $.fn.bootstrapSwitch.defaults.offText = 'Admin';
+  $.fn.bootstrapSwitch.defaults.onColor = 'success';  
+  $("[name='session[myCheckbox]']").bootstrapSwitch();  
+</script>
