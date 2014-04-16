@@ -2,10 +2,13 @@ Gameorama::Application.routes.draw do
 
 
 
-  match'/admin/dashboard', to: 'admin#index', via: 'get'
-  match'/admin/users', to: 'admin#users', via: 'get'
-  match'/admin/games', to: 'admin#games', via: 'get'
- 
+  match '/admin/dashboard', to: 'admin#index', via: 'get'
+  match '/admin/users', to: 'admin#users', via: 'get'
+  match '/admin/games', to: 'admin#games', via: 'get'
+  match '/admin/createUser', to: 'admin#createUser', via: 'post'
+  match '/admin/createGame', to: 'admin#createGame', via: 'post'
+
+
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'

@@ -6,7 +6,7 @@ class AdminController < ApplicationController
   end
 
   def createUser
-    newUser = User.create(name: params[:createUser][:name], email: params[:createUser][:email], password: params[:createUser][:password], password_confirmation: params[:createUser] [:password_confirmation], is_admin: 0)
+    newUser = User.create(name: params[:createUser][:name], email: params[:createUser][:email], password: params[:createUser][:password], password_confirmation: paramsparams[:createUser] [:password_confirmation], is_admin: 0)
      if newUser.save
         flash.now[:success]='User Successfully created!' 
         render "index"

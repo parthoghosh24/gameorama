@@ -3,6 +3,71 @@
 
 <div class="container">
  <h1>Admin Dashboard</h1>
- <p>Users and Games can be created from here</p>
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+   <div>
+    <ul class="nav nav-tabs form-tabs">
+      <li id="createUser" class="active">
+        <a data-toggle="tab" href="#form1">Create User</a>
+      </li>
+      <li id="createGame">
+        <a data-toggle="tab" href="#form2">Create Game</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <fieldset id="form1" class="tab-pane active">
+        <h2>Create User</h2>
+       
+        <div class="container">
+          <div class="row">
+	  <div class="span6 offset3">
+	    <%= form_for(:createUser, url: admin_createUser_path, :html => {:class =>'form-horizontal'}  ) do |f| %>
+
+	      
+	      <%= f.text_field :name, :placeholder => "Enter Name" , :class => "input-xlarge"%>
+              <br><br>
+	      
+	      <%= f.text_field :email, :placeholder => "Enter Email" %>
+              <br><br>
+	      
+	      <%= f.password_field :password, :placeholder => "Enter Password" %>
+              <br><br> 	      
+	      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+              <br><br> 
+	      <%= f.submit "Create User", class: "btn btn-large btn-primary" %>
+	    <% end %>
+	  </div>
+	</div>
+        </div>
+	
+
+      </fieldset>
+ 
+      <fieldset id="form2" class="tab-pane ">
+
+        <h2>Create Game</h2>
+ 
+        <div class="row">
+	  <div class="span6 offset3">
+	    <%= form_for(:createGame, url: admin_createGame_path) do |f| %>
+
+
+	      <%= f.text_field :title, :placeholder => "Enter Title"%>
+              <br><br> 
+
+	      <%= f.text_field :description, :placeholder => "Enter description" %>
+              <br><br>  
+
+	      <%= f.password_field :boxshot, :placeholder => "Enter boxshot path" %>
+              <br><br>
+
+	      <%= f.submit "Create Game", class: "btn btn-large btn-primary" %>
+	    <% end %>
+	  </div>
+	</div>
+      </fieldset>
+    </div>
+   </div>
 </div>
 
