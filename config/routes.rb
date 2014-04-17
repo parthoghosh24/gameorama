@@ -16,6 +16,9 @@ Gameorama::Application.routes.draw do
   match '/news', to: 'static_pages#news', via: 'get'
 
   resources :sessions, only: [:new, :create, :destroy]  
+
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
+  match 'auth/failure', to: redirect('/'), via: [:get, :post] 
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   resources:users

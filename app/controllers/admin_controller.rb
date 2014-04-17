@@ -21,6 +21,7 @@ class AdminController < ApplicationController
   end
 
   def users
+     @users= User.where(:is_admin => 0)
   end
 
   def games

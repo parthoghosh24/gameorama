@@ -13,7 +13,7 @@
             
             <div class="row">
                  <div class="span6 offset3">
-                       <button class="btn btn-facebook"><i class="fa fa-facebook"></i> | Login with Facebook</button>
+                       <button id="sign_in" class="btn btn-facebook"><i class="fa fa-facebook"></i> | Login with Facebook</button>
 		</div>
   		<div class="span6 offset3" style="margin-top:50px;">
                            <% flash.each do |key, value| %>
@@ -28,7 +28,7 @@
                             <br>
                             <br>
                            <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-                           <input type="checkbox" name="session[myCheckbox]" checked value="1">
+                           <input id="session_myCheckbox" type="checkbox" name="session[myCheckbox]" checked value="1">
                          <% end %>
 
 		</div>
