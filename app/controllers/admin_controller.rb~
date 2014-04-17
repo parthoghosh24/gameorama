@@ -20,7 +20,7 @@ class AdminController < ApplicationController
 
   def createGame
      newGame = Game.create(title: params[:createGame][:title], description: params[:createGame][:description], boxshot: params[:createGame][:boxshot])
-     if newUser.save
+     if newGame.save
         flash.now[:success]='Game Successfully created!' 
         render "index"
      else
@@ -30,10 +30,11 @@ class AdminController < ApplicationController
   end
 
   def users
-     @users= User.where(:is_admin => 0)
+     @users= User.where(:is_admin => 0).paginate(:page => params[:page], :per_page => 5)
   end
 
   def games
+     @games = Game.all
   end
 
   def signed_in_user

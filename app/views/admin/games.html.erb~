@@ -1,2 +1,35 @@
-<h1>Admin#games</h1>
-<p>Find me in app/views/admin/games.html.erb</p>
+<% provide(:title, 'Admin Dashboard- List games')%>
+<%= render 'layouts/header' %>
+<div class="container">
+  <h1>All Games</h1>
+
+
+ <div class="col-lg-10"> 
+
+     <%= will_paginate @games, renderer: BootstrapPagination::Rails %>
+   <table class="table table-hover">
+     <thead>
+      <th>Id</th>
+      <th>box shot</th> 
+      <th>Title</th>
+      <th>Description</th> 
+    </thead>
+    <tbody>
+     <% @games.each do |game| %>
+      <tr>
+        <td><%= game.id %></td>
+        <td><img alt="game<%= game.id %>" src="<%= game.boxshot %>" width="80" height="80" class="img-circle"></td>
+        <td><%= game.title %></td>
+        <td><%= game.description %></td>  
+     </tr>
+  <% end %> 
+    </tbody>
+  </table>
+   <%= will_paginate @games %>
+ </div>
+
+   
+
+</div>
+
+

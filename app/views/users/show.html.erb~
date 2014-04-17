@@ -1,16 +1,16 @@
-<% provide(:title, @user.name)%>
+<% provide(:title, @userProfileContent["user"].name)%>
 <%= render 'layouts/header' %>
 
 <div class="container">
 <div class="row userDetailsBg padding5">
   <div class="col-sm-6 col-lg-3">
-     <img alt="<%=@user.name %>" src="<%=@user.avatar %>" height=200 class="img-thumbnail">
-      <p class="userEmail"><%=@user.email %></p>
+     <img alt="<%=@userProfileContent['user'].name %>" src="<%=@userProfileContent["user"].avatar %>" height=200 class="img-thumbnail">
+      <p class="userEmail"><%=@userProfileContent["user"].email %></p>
   </div>
   <div class="col-lg-6">
      <div class="row">
          <div class="col-lg-6">
-           <h1 class="userName"><%=@user.name %></h1>
+           <h1 class="userName"><%=@userProfileContent["user"].name %></h1>
         </div>
      
        <div class="col-lg-10">
@@ -53,6 +53,49 @@
            </ul>
      </div>
 </div class="row">
- 
+
+<div class="row marginTop20 myDiscoveries padding5">
+ <div class="col-lg-20 padding5"> 
+      <h3><strong>My Discoveries</strong></h3>
+
+     <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+   <table class="table table-hover">
+
+    <tbody>
+     <% @userProfileContent["discoveries"].each do |game| %>
+      <tr>
+        <td><img alt="game<%= game.id %>" src="<%= game.boxshot %>" width="80" height="80" class="img-circle"></td>
+        <td><%= game.title %></td>
+        <td><%= game.description %></td>  
+        <td><button class="btn btn-success" id="<%= game.id%>">Reviewed</button></td>
+     </tr>
+  <% end %> 
+    </tbody>
+  </table>
+   <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+ </div>
+</div>
+
+<div class="row marginTop20 myFavorites padding5">
+ <div class="col-lg-20 padding5"> 
+      <h3><strong>My Favorites</strong></h3>
+
+     <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+   <table class="table table-hover">
+
+    <tbody>
+     <% @userProfileContent["discoveries"].each do |game| %>
+      <tr>
+        <td><img alt="game<%= game.id %>" src="<%= game.boxshot %>" width="80" height="80" class="img-circle"></td>
+        <td><%= game.title %></td>
+        <td>Lorem ispum dolor smit</td>  
+        <td class="myFavoritesScore">4/5</td>
+     </tr>
+  <% end %> 
+    </tbody>
+  </table>
+   <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+ </div>
+</div>
 
 </div>

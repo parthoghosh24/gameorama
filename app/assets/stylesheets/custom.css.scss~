@@ -126,6 +126,10 @@ textarea {
     padding: 5px;
   }
 
+   .userName
+   {
+     color: rgb(98, 98, 98);
+   }
   .userEmail
   {
     color: #8C8683;
@@ -144,3 +148,25 @@ background-color: rgb(246, 197, 78);
  {
     background: #f4f4f4; 
  }
+.marginTop20
+ {
+    margin-top:20px;
+ }
+
+.myDiscoveries
+{
+  background-color: rgb(212, 224, 231);
+
+}
+
+
+.myFavorites
+{
+ background-color: #E6F5E5;  
+}
+
+.myFavoritesScore
+{
+  font-size: 30px; 
+  color: rgb(96, 157, 203);
+}

@@ -3,7 +3,9 @@
 
 <div class="container">
  <h1>Admin Dashboard</h1>
-
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
    <div>
     <ul class="nav nav-tabs form-tabs">
       <li id="createUser" class="active">
@@ -57,7 +59,7 @@
 	      <%= f.text_field :description, :placeholder => "Enter description" %>
               <br><br>  
 
-	      <%= f.password_field :boxshot, :placeholder => "Enter boxshot path" %>
+	      <%= f.text_field :boxshot, :placeholder => "Enter boxshot path" %>
               <br><br>
 
 	      <%= f.submit "Create Game", class: "btn btn-large btn-primary" %>

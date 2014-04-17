@@ -2,6 +2,7 @@ Gameorama::Application.routes.draw do
 
 
 
+  get "reviews/new"
   match '/admin/dashboard', to: 'admin#index', via: 'get'
   match '/admin/users', to: 'admin#users', via: 'get'
   match '/admin/games', to: 'admin#games', via: 'get'
