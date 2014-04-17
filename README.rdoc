@@ -1,1 +1,3 @@
 This is a demo built in RAILS 4 for the purpose of interview at Redcarpet as well as to learn RAILS framework
+
+Run rake db:setup to create DB and load it with seed data

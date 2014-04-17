@@ -6,4 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(name: "Partho Ghosh", email: "defjam24@gmail.com", password: "secret", password_confirmation: "secret", is_admin: 1, avatar: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png")
 
+Game.create(title: "Max Payne 3", description: "In Max Payne 3, the player controls Max Payne, a former NYPD detective who had became a vigilante after his wife and daughter were brutally murdered.", boxshot: "https://s3.amazonaws.com/gloonuploads/game/maxpayne3/uploads/mp_cover.jpg")
+
+Game.create(title: "Battlefield 4", description: "Battlefield 4's single-player Campaign takes place in 2020, six years after the events of its predecessor.", boxshot: "https://s3.amazonaws.com/gloonuploads/game/battlefield4/uploads/b4_cover.jpg")
+
+Game.create(title: "Song Of Swords", description: "Song Of Swords is a solid 2D RPG platforming game created by Nautilus Mobile for Blackberry 10 devices.", boxshot: "https://s3.amazonaws.com/gloonuploads/game/songofswords/uploads/sos_cover.png")
+
+Game.create(title: "Batman: Arkham City", description: "Written by veteran Batman writer Paul Dini with Paul Crocker and Sefton Hill, Arkham City is based on the franchise's long-running comic book mythos.", boxshot: "https://s3.amazonaws.com/gloonuploads/game/batmanarkhamcity/uploads/bac_cover.jpg")
+
+Game.create(title: "Metal Gear Rising: Revengence", description: "METAL GEAR RISING: REVENGEANCE takes the renowned METAL GEAR franchise into exciting new territory by focusing on delivering an all-new action experience unlike anything that has come before.", boxshot: "https://s3.amazonaws.com/gloonuploads/game/metalgearrisingrevengence/uploads/mgsr_cover.jpg")
