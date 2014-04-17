@@ -10,23 +10,24 @@ class AdminController < ApplicationController
 
      if newUser.save
         flash.now[:success]='User Successfully created!' 
-        render "index"
+        
      else
         flash.now[:error]='Failed in creating user! Please try again' 
-        render "index"
+        
      end
-     
+     render "index"
   end
 
   def createGame
      newGame = Game.create(title: params[:createGame][:title], description: params[:createGame][:description], boxshot: params[:createGame][:boxshot])
      if newGame.save
         flash.now[:success]='Game Successfully created!' 
-        render "index"
+      
      else
         flash.now[:error]='Failed in creating game! Please try again' 
-        render "index"
+        
      end
+     render "index"
   end
 
   def users
@@ -34,10 +35,10 @@ class AdminController < ApplicationController
   end
 
   def games
-     @games = Game.all
+     @games = Game.paginate(:page => params[:page], :per_page => 5)
   end
 
   def signed_in_user
-      redirect_to root_url, notice: "Please sign in." unless signed_in?
+      redirect_to root_url, notice: "Please sign in." unless signed_in && current_user
  end
 end

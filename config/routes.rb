@@ -2,7 +2,6 @@ Gameorama::Application.routes.draw do
 
 
 
-  get "reviews/new"
   match '/admin/dashboard', to: 'admin#index', via: 'get'
   match '/admin/users', to: 'admin#users', via: 'get'
   match '/admin/games', to: 'admin#games', via: 'get'
@@ -23,6 +22,9 @@ Gameorama::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   resources:users
+
+  match '/reviews/new', to: 'reviews#new', via: 'post'
+
  #  match '/user/index/:id', to: 'user#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.

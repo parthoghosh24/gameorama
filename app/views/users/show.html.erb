@@ -58,7 +58,7 @@
  <div class="col-lg-20 padding5"> 
       <h3><strong>My Discoveries</strong></h3>
 
-     <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+     <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails, :param_name => 'discovery_page' %>
    <table class="table table-hover">
 
     <tbody>
@@ -67,35 +67,87 @@
         <td><img alt="game<%= game.id %>" src="<%= game.boxshot %>" width="80" height="80" class="img-circle"></td>
         <td><%= game.title %></td>
         <td><%= game.description %></td>  
-        <td><button class="btn btn-success" id="<%= game.id%>">Review It</button></td>
+        <td>
+          <% if Review.find_by user_id: current_user.id,  game_id: game.id%> 
+                <button class="btn btn-danger reviewButton" id="<%= game.id%>" data-target="#myModal" data-toggle="modal" disabled="disabled">Reviewed</button>
+          <% else %> 
+               <button class="btn btn-success reviewButton" id="<%= game.id%>" data-target="#myModal" data-toggle="modal">Review It</button>
+          <% end %>
+        </td>
      </tr>
   <% end %> 
     </tbody>
   </table>
-   <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+   <%=  will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails, :param_name => 'discovery_page' %>
  </div>
 </div>
 
+<% if @userProfileContent["favorites"]%>
 <div class="row marginTop20 myFavorites padding5">
  <div class="col-lg-20 padding5"> 
       <h3><strong>My Favorites</strong></h3>
 
-     <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+
+    <%=  will_paginate @userProfileContent["favorites"], renderer: BootstrapPagination::Rails, :param_name => 'favorites_page' %>
+
    <table class="table table-hover">
 
     <tbody>
-     <% @userProfileContent["discoveries"].each do |game| %>
-      <tr>
-        <td><img alt="game<%= game.id %>" src="<%= game.boxshot %>" width="80" height="80" class="img-circle"></td>
-        <td><%= game.title %></td>
-        <td>Lorem ispum dolor smit</td>  
-        <td class="myFavoritesScore">4/5</td>
-     </tr>
-  <% end %> 
+     
+     	<% @userProfileContent["favorites"].each do |review| %>
+           <tr>
+              <td><img alt="game<%= Game.find(review.game_id).id %>" src="<%= Game.find(review.game_id).boxshot %>" width="80" height="80" class="img-circle"></td>
+              <td><%= review.body %></td>  
+              <td class="myFavoritesScore"><%= review.score %>/5</td>
+           </tr>
+        <% end %> 
+     
     </tbody>
   </table>
-   <%= will_paginate @userProfileContent["discoveries"], renderer: BootstrapPagination::Rails %>
+   <%=  will_paginate @userProfileContent["favorites"], renderer: BootstrapPagination::Rails, :param_name => 'favorites_page' %>
+
  </div>
 </div>
+ <% end %> 
 
 </div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Write Your Review</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:reviewGame, url: reviews_new_path) do |f| %>
+  
+              <%= f.hidden_field :gameId, :id => 'reviewGameId' %>
+
+              <%= f.hidden_field :userId, :id => 'reviewUserId' %>
+
+
+	      <%= f.text_field :score, :placeholder => "Enter Score from 0 to 5"%>
+              <br><br> 
+
+	      <%= f.text_area :body, :placeholder => "Enter review" %>
+              <br><br>  
+
+
+	      <%= f.submit "Review it", class: "btn btn-large btn-success" %>
+	    <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+$(function(){
+  $('.reviewButton').click(function(){
+      var id = $(this).attr('id');
+      $('#reviewGameId').val(id);
+      $('#reviewUserId').val(<%=current_user.id%>);
+  });
+
+});
+</script>

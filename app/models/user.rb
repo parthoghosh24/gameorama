@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
    validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }
    has_secure_password
    validates :password, length: { minimum: 6 }
+   has_many :reviews, foreign_key: "user_id", dependent: :destroy
 
    def User.new_remember_token
       SecureRandom.urlsafe_base64
@@ -35,7 +36,7 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-
+  
    private
    
         def create_remember_token
