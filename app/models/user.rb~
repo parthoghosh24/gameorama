@@ -16,7 +16,11 @@ class User < ActiveRecord::Base
    end
 
    def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    Rails.logger.debug("debug:: incoming Email  #{auth.info.email}")
+    Rails.logger.debug("debug:: incoming Image  #{auth.info.image}")
+    Rails.logger.debug("debug:: incoming name  #{auth.info.name}")
+   
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|      
       user.provider = auth.provider
       user.uid = auth.uid
       user.fbname = auth.info.name

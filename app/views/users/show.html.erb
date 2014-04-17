@@ -2,6 +2,59 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
- <h1><%=@user.name %></h1>
- <p><%=@user.email %></p>
+<div class="row userDetailsBg padding5">
+  <div class="col-sm-6 col-lg-3">
+     <img alt="<%=@user.name %>" src="<%=@user.avatar %>" height=200 class="img-thumbnail">
+      <p class="userEmail"><%=@user.email %></p>
+  </div>
+  <div class="col-lg-6">
+     <div class="row">
+         <div class="col-lg-6">
+           <h1 class="userName"><%=@user.name %></h1>
+        </div>
+     
+       <div class="col-lg-10">
+         <ul class="list-inline">
+            <li>
+              <p class="userStatsHeader">Followers</p>
+              <p class="userStatsContent">20</p> 
+            </li> 
+            <li>
+              <p class="userStatsHeader">Following</p>
+              <p class="userStatsContent">5</p> 
+            </li>
+            <li>
+              <p class="userStatsHeader">Favorites</p>
+              <p class="userStatsContent">10</p>
+            </li> 
+         </ul>
+       </div>
+     </div>
+     
+
+     
+  </div>
+
+  <div class="col-sm-6 col-lg-3">
+           <ul class="list-inline padding5">
+              <li>
+                <div class="row userXp">
+                 <div class="userAwardValues col-sm-10"><strong>48</strong></div>
+                 <div class="userAwardLabel"><strong>XP</strong></div> 
+               </div>
+              </li> 
+
+              <li class="marginLeft20">
+               <div class="row userLevel">
+                 <div class="userAwardValues col-sm-10"><strong>1</strong></div>
+                 <div class="userAwardLabel"><strong>Level</strong></div> 
+               </div>
+              </li>  
+           </ul>
+     </div>
+</div class="row">
+ <table class="table table-hover">
+  <tbody></tbody>
+ </table>
+
 </div>

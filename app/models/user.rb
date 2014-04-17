@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
    end
 
    def self.from_omniauth(auth)
+    Rails.logger.debug("debug:: incoming Email  #{auth.info.email}")
+    Rails.logger.debug("debug:: incoming Image  #{auth.info.image}")
+    Rails.logger.debug("debug:: incoming name  #{auth.info.name}")
+   
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|      
       user.provider = auth.provider
       user.uid = auth.uid
@@ -24,6 +28,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email    
       user.password="secret"
       user.password_confirmation="secret"
+      user.avatar= auth.info.image
       user.is_admin=0
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)

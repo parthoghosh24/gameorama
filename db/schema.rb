@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417042650) do
+ActiveRecord::Schema.define(version: 20140417070050) do
 
   create_table "games", force: true do |t|
     t.string   "title"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140417042650) do
     t.string   "fbname"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
