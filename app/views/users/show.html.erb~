@@ -1,6 +1,10 @@
 <% provide(:title, @userProfileContent["user"].name)%>
 <%= render 'layouts/header' %>
-
+<script>
+  $(function(){
+     alert('hi');
+  });
+</script>
 <div class="container">
 <div class="row userDetailsBg padding5">
   <div class="col-sm-6 col-lg-3">
@@ -67,7 +71,7 @@
         <td><img alt="game<%= game.id %>" src="<%= game.boxshot %>" width="80" height="80" class="img-circle"></td>
         <td><%= game.title %></td>
         <td><%= game.description %></td>  
-        <td><button class="btn btn-success" id="<%= game.id%>">Reviewed</button></td>
+        <td><button class="btn btn-success" id="<%= game.id%>">Review It</button></td>
      </tr>
   <% end %> 
     </tbody>
