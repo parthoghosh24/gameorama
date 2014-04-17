@@ -31,7 +31,11 @@ class AdminController < ApplicationController
   end
 
   def users
-     @users= User.where(:is_admin => 0).paginate(:page => params[:page], :per_page => 5)
+     @users =User.where(:is_admin => 0)
+     
+     if @users
+        @users=@users.paginate(:page => params[:page], :per_page => 5)
+     end  
   end
 
   def games

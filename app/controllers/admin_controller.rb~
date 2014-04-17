@@ -31,14 +31,23 @@ class AdminController < ApplicationController
   end
 
   def users
-     @users= User.where(:is_admin => 0).paginate(:page => params[:page], :per_page => 5)
+     @users =User.where(:is_admin => 0)
+     
+     if @users
+        @users=@users.paginate(:page => params[:page], :per_page => 5)
+     end  
   end
 
   def games
+     @games =Game.count
+     
+     if @users
+        @users=@users.paginate(:page => params[:page], :per_page => 5)
+     end
      @games = Game.paginate(:page => params[:page], :per_page => 5)
   end
 
   def signed_in_user
-      redirect_to root_url, notice: "Please sign in." unless signed_in && current_user
+      redirect_to root_url, notice: "Please sign in." unless signed_in?
  end
 end
