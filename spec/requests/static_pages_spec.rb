@@ -16,6 +16,11 @@ describe "Static Pages" do
   end
 
   describe "Location" do
+    it "should have the title 'Location'"  do
+       visit '/location'
+       expect(page).to have_title('Location')
+    end
+
     it "should have the content 'You can locate us at'" do
        visit '/location'
        expect(page).to have_content('You can locate us at') 
