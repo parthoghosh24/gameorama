@@ -6,10 +6,11 @@ gem 'rails', '4.1.0'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'sprockets'
-
+gem 'minitest'
 #Use mysql as the database for Active Record
 group :development, :test do
   gem 'mysql2'
+  gem 'pg' 
   gem 'rspec-rails', '2.13.1'
 end
 
