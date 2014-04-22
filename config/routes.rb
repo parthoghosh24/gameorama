@@ -14,6 +14,7 @@ Gameorama::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/news', to: 'static_pages#news', via: 'get'
+  match '/location', to: 'static_pages#location', via: 'get'
 
   resources :sessions, only: [:new, :create, :destroy]  
 
